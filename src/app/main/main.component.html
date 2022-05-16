@@ -1,0 +1,24 @@
+<div class="b">
+  <div class="v" style="width:230px;box-shadow: 0 0 15px 5px rgb(232 234 236 / 80%);">
+      <div class="b">
+        <div class="h" style="height:200px;" layout="column" layout-align="start center">
+          <img style="height:40%; padding-top: 30px;" src="assets/images/MDM-Designs-New.svg">
+        </div>
+        <div class="h" style="height:calc(100% - 200px)">
+          <div class="h" style="height:65px;" *ngFor="let arr of menuArry;let i = index;" layout="column" layout-align="start center">
+              <div class="h" [style.background]="i == 0 ? '#edf2f6':none" style="height:50px;background:#edf2f6;padding-left: 10px;" layout="row" layout-align="start center">
+                    <div class="v" style="width:60px;" layout="row" layout-align="center center">
+                        <img style="height:60%;" src="{{arr.CML_IMAGE}}">
+                    </div>
+                    <div class="v" style="width:calc(100% - 60px)" layout="row" layout-align="start center">
+                        <h5 class="px16 lw">{{arr.CML_TITLE}}</h5>
+                    </div>
+              </div>
+          </div>
+        </div>
+      </div>
+  </div>
+  <div class="v" style="width:calc(100% - 230px)" >
+     <app-home class="b"></app-home>
+  </div>
+</div>
