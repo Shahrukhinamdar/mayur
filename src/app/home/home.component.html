@@ -1,3 +1,52 @@
-<div class="b">
-  <div class="h" style="height:140px;"></div>
+<div class="b" style="overflow: auto;">
+  <img src="assets/images/2.svg" style="width: 100%; height: 400px; position: absolute; left: 175px; opacity: 0.4;">
+  <div class="h" style="height:170px;" layout="row" layout-align="start center">
+      <div class="v" style="width:400px;padding:0px 30px;" layout="row" layout-align="start center">
+          <div class="vh" style="width:80px;height:80px;border-radius:50%;background:#fcd9d7"></div>
+          <div class="v" style="width:calc(100% - 80px);padding: 0px 25px;" layout="column" layout-align="center center">
+            <div class="h" layout="row" layout-align="start center">
+              <h5 class="px40 hw" style="font-family: PoppinsSemiBold;">Hi Utkarsh</h5>
+            </div>
+            <div class="h" layout="row" layout-align="start center">
+              <h5 class="px16" style="font-family: PoppinsThin; text-align: center;">Class : 6</h5>
+              <h5 class="px16 lp" style="font-family: PoppinsThin;text-align: center;">Level 1</h5>
+            </div>
+          </div>
+      </div>
+  </div>
+  <div class="h" style="height:400px;padding: 0px 30px;">
+    <div class="h" style="height:70px;" layout="row" layout-align="start center">
+      <h5 class="px18" style="font-family: PoppinsThin; text-align: center;">My Subjects</h5>
+    </div>
+    <div class="h" style="height:calc(100% - 70px);">
+        <div class="vh" style="width: 135px; height: 150px;padding: 15px;" *ngFor="let arr of subjectArr;let i = index;">
+            <div class="b" layout="column" layout-align="center center">
+                <div class="h" style="height:70%;" layout="row" layout-align="center center">
+                  <img src="{{arr.CML_IMAGE}}" style="height:50%;">
+                </div>
+                <div class="h" style="height:30%;" layout="row" layout-align="center center">
+                  <h5 class="px16 lw">{{arr.CML_TITLE}}</h5>
+                </div>
+            </div>
+        </div>
+    </div>
+  </div>
+  <div class="h" style="height:200px;padding: 0px 30px;">
+    <div class="h" style="height:70px;" layout="row" layout-align="start center">
+      <h5 class="px18" style="font-family: PoppinsThin; text-align: center;">Continue learning</h5>
+    </div>
+    <div class="h" style="height:calc(100% - 70px);" layout="row" layout-align="start center">
+        <div class="v" *ngFor="let arr of continueLearnArr;let i = index;" style="width:33.33%;padding:0px 20px;">
+            <div class="b" style="box-shadow: 0 0 15px 5px rgb(232 234 236 / 80%);height: 90%;" layout="row" layout-align="start center">
+                <div class="v brdRad p" style="width:40%;" layout="row" layout-align="center center">
+                  <img src ="{{arr.CML_IMAGE}}" style="height:60%;">
+                </div>
+                <div class="v" style="width:60%;" layout="column" layout-align="start center">
+                  <h5 class="px13 lw">{{arr.CML_TITLE}}</h5>
+                  <h5 class="px16 lw">{{arr.CML_DESC}}</h5>
+                </div>
+            </div>
+        </div>
+    </div>
+  </div>
 </div>
