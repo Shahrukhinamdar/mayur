@@ -28,6 +28,11 @@ export class HomeComponent implements OnInit {
     {CML_TITLE:'MATHS',CML_IMAGE:'assets/images/learn.png',CML_DESC:'Understanding pythagoras'},
     {CML_TITLE:'ENGLISH',CML_IMAGE:'assets/images/learn.png',CML_DESC:'Acronyms & Synonyms'},
   ]
+  swadhyayArr: any = [
+    {CML_TITLE:'Take a test',CML_IMAGE:'assets/images/bgOne.svg',CML_DESC:'PDF for self-learning and assessment'},
+    {CML_TITLE:'Swadhyay (PDF)',CML_IMAGE:'assets/images/bg.svg',CML_DESC:'PDF for self-learning and assessment'},
+    {CML_TITLE:'Audio Lesson',CML_IMAGE:'assets/images/bgTwo.svg',CML_DESC:'Listen to audio lesson on the go'},
+  ]
   ngOnInit() {
   }
 

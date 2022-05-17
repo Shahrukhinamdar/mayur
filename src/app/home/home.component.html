@@ -41,12 +41,28 @@
                 <div class="v brdRad p" style="width:40%;" layout="row" layout-align="center center">
                   <img src ="{{arr.CML_IMAGE}}" style="height:60%;">
                 </div>
-                <div class="v" style="width:60%;" layout="column" layout-align="start center">
+                <div class="v lp" style="width:60%;" layout="column" layout-align="center start">
                   <h5 class="px13 lw">{{arr.CML_TITLE}}</h5>
-                  <h5 class="px16 lw">{{arr.CML_DESC}}</h5>
+                  <h5 class="px16 lw tm">{{arr.CML_DESC}}</h5>
                 </div>
             </div>
         </div>
     </div>
+  </div>
+  <div class="h" style="height:300px;padding: 0px 30px;" layout="row" layout-align="center center">
+    <div class="h" style="height:200px;">
+      <div class="v" *ngFor="let arr of swadhyayArr;let i = index;" style="width:33.33%;padding:0px 20px;">
+        <div class="b" [style.background-image]="'url(' + arr.CML_IMAGE + ')'"  style="box-shadow: 0 0 15px 5px rgb(232 234 236 / 80%);height: 90%;" layout="row" layout-align="start center">
+            <!-- <div class="v brdRad p" style="width:40%;" layout="row" layout-align="center center">
+              <img src ="{{arr.CML_IMAGE}}" style="height:60%;">
+            </div>
+            <div class="v lp" style="width:60%;" layout="column" layout-align="center start">
+              <h5 class="px13 lw">{{arr.CML_TITLE}}</h5>
+              <h5 class="px16 lw tm">{{arr.CML_DESC}}</h5>
+            </div> -->
+        </div>
+      </div>
+    </div>  
+   
   </div>
 </div>
