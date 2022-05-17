@@ -1,4 +1,4 @@
-<div class="b" style="overflow: auto;">
+<div class="b" *ngIf="selectSubFlag == false && !selectIntSub" style="overflow-x:hidden;overflow-y: auto;">
   <img src="assets/images/2.svg" style="width: 100%; height: 400px; position: absolute; left: 175px; opacity: 0.4;">
   <div class="h" style="height:170px;" layout="row" layout-align="start center">
       <div class="v" style="width:400px;padding:0px 30px;" layout="row" layout-align="start center">
@@ -19,7 +19,7 @@
       <h5 class="px18" style="font-family: PoppinsThin; text-align: center;">My Subjects</h5>
     </div>
     <div class="h" style="height:calc(100% - 70px);">
-        <div class="vh" style="width: 135px; height: 150px;padding: 15px;" *ngFor="let arr of subjectArr;let i = index;">
+        <div class="vh" style="width: 135px; height: 150px;padding: 15px;" (click)="selectSubject()" *ngFor="let arr of subjectArr;let i = index;">
             <div class="b" layout="column" layout-align="center center">
                 <div class="h" style="height:70%;" layout="row" layout-align="center center">
                   <img src="{{arr.CML_IMAGE}}" style="height:50%;">
@@ -51,18 +51,176 @@
   </div>
   <div class="h" style="height:300px;padding: 0px 30px;" layout="row" layout-align="center center">
     <div class="h" style="height:200px;">
-      <div class="v" *ngFor="let arr of swadhyayArr;let i = index;" style="width:33.33%;padding:0px 20px;">
-        <div class="b" [style.background-image]="'url(' + arr.CML_IMAGE + ')'"  style="box-shadow: 0 0 15px 5px rgb(232 234 236 / 80%);height: 90%;" layout="row" layout-align="start center">
-            <!-- <div class="v brdRad p" style="width:40%;" layout="row" layout-align="center center">
-              <img src ="{{arr.CML_IMAGE}}" style="height:60%;">
-            </div>
-            <div class="v lp" style="width:60%;" layout="column" layout-align="center start">
-              <h5 class="px13 lw">{{arr.CML_TITLE}}</h5>
-              <h5 class="px16 lw tm">{{arr.CML_DESC}}</h5>
-            </div> -->
+      <div class="v" *ngFor="let arr of swadhyayArr;let i = index;" (click)="openCloseFunc()" style="width:33.33%;padding:0px 20px;">
+        <div class="b" [style.background-image]="'url(' + arr.CML_IMAGE + ')'"  style="box-shadow: 0 0 15px 5px rgb(232 234 236 / 80%);height: 90%;" layout="column" layout-align="start center">
+            <h5 class="px22 tm"[style.color]="arr.CML_COLOR">{{arr.CML_TITLE}}</h5>
+            <h5 class="px16 tm" style="font-family: PoppinsThin; text-align: center;">{{arr.CML_DESC}}</h5>
         </div>
       </div>
     </div>  
-   
+  </div>
+  <div class="h" style="padding: 0px 30px;" layout="row" layout-align="center center">
+    <img src ="assets/images/ad1.jpeg" style="width:100%;">
+  </div>
+  <div class="h" style="height:65px;" layout="row" layout-align="center center">
+  </div>
+</div>
+<div class="b" *ngIf="selectSubFlag == true && !selectIntSub" style="overflow-x:hidden;overflow-y: auto;">
+  <img src="assets/images/group1.svg" style="width: 100%; height: 315px; position: absolute; left:30%; opacity: 0.4;">
+  <div class="h" style="height:170px;" layout="row" layout-align="start center">
+      <div class="v" style="width:400px;padding:0px 30px;" layout="row" layout-align="start center">
+          <div class="vh" (click)="backSelectSubject()" style="width:80px;height:80px;border-radius:50%;background:#cedcf5"></div>
+          <div class="v" style="width:calc(100% - 80px);padding: 0px 25px;" layout="column" layout-align="center center">
+            <div class="h" layout="row" layout-align="start center">
+              <h5 class="px40 hw" style="font-family: PoppinsSemiBold;">Chemistry</h5>
+            </div>
+            <div class="h" layout="row" layout-align="start center">
+              <h5 class="px16" style="font-family: PoppinsThin; text-align: center;">Class : 6</h5>
+              <h5 class="px16 lp" style="font-family: PoppinsThin;text-align: center;">4 chapter</h5>
+              <h5 class="px16 lp" style="font-family: PoppinsThin;text-align: center;">26 Videos</h5>
+            </div>
+          </div>
+      </div>
+  </div>
+  <div class="h" style="height:200px;padding: 0px 30px;">
+    <div class="h" style="height:70px;" layout="row" layout-align="start center">
+      <h5 class="px18" style="font-family: PoppinsThin; text-align: center;">Continue learning</h5>
+    </div>
+    <div class="h" style="height:calc(100% - 70px);" layout="row" layout-align="start center">
+        <div class="v" *ngFor="let arr of continueLearnArr;let i = index;" style="width:33.33%;padding:0px 20px;">
+            <div class="b" style="box-shadow: 0 0 15px 5px rgb(232 234 236 / 80%);height: 90%;" layout="row" layout-align="start center">
+                <div class="v brdRad p" style="width:40%;" layout="row" layout-align="center center">
+                  <img src ="{{arr.CML_IMAGE}}" style="height:60%;">
+                </div>
+                <div class="v lp" style="width:60%;" layout="column" layout-align="center start">
+                  <h5 class="px13 lw">{{arr.CML_TITLE}}</h5>
+                  <h5 class="px16 lw tm">{{arr.CML_DESC}}</h5>
+                </div>
+            </div>
+        </div>
+    </div>
+  </div>
+  <div class="h" style="height:250px;padding: 0px 30px;margin-top:30px;">
+    <div class="h" style="height:70px;" layout="row" layout-align="start center">
+      <div class="v" style="width:calc(100% - 200px);" layout="row" layout-align="start center">
+        <h5 class="px18 lw" style="text-align: center;">1. Fibre to Fabric</h5>
+      </div>  
+      <div class="v" style="width:200px;" layout="row" layout-align="start center">
+        <div class="vh brdRad pt" layout="row" layout-align="center center" style="width:185px;height:35px;background:#3378f09c">
+          <h5 class="px18 clr4 hw" style="font-family: PoppinsSemiBold;">Take a Test</h5>
+        </div>
+      </div>
+    </div>
+    <div class="h" style="height:calc(100% - 70px);" layout="row" layout-align="start center">
+        <div class="v" *ngFor="let arr of fiberArr;let i = index;" (click)="selectIntSubFunc()" style="width:20%;padding:0px 20px;">
+            <div class="b" style="box-shadow: 0 0 15px 5px rgb(232 234 236 / 80%);height: 100%;">
+                <div class="h brdRad" style="height:70%;" layout="row" layout-align="center center">
+                  <img src ="{{arr.CML_IMAGE}}" style="height:90%;padding-top: 15px;">
+                </div>
+                <div class="h" style="height:30%;padding: 0px 20px;" layout="row" layout-align="start center">
+                  <h5 class="px13 lw">{{arr.CML_TITLE}}</h5>
+                </div>
+            </div>
+        </div>
+    </div>
+  </div>
+  <div class="h" style="height:250px;padding: 0px 30px;margin-top:30px;">
+    <div class="h" style="height:70px;" layout="row" layout-align="start center">
+      <div class="v" style="width:calc(100% - 410px);" layout="row" layout-align="start center">
+        <h5 class="px18 lw" style="text-align: center;">2. Water Cycle</h5>
+      </div>  
+      <div class="v" style="width:200px;" layout="row" layout-align="start center">
+        <div class="vh brdRad pt" layout="row" layout-align="center center" style="width:185px;height:35px;background:#3378f09c">
+          <h5 class="px18 clr4 hw" style="font-family: PoppinsSemiBold;">Take a Test</h5>
+        </div>
+      </div>
+    </div>
+    <div class="h" style="height:calc(100% - 70px);" layout="row" layout-align="start center">
+        <div class="v" *ngFor="let arr of waterArr;let i = index;" style="width:20%;padding:0px 20px;">
+            <div class="b" style="box-shadow: 0 0 15px 5px rgb(232 234 236 / 80%);height: 100%;">
+                <div class="h brdRad" style="height:60%;" layout="row" layout-align="center center">
+                  <img src ="{{arr.CML_IMAGE}}" style="height:90%;padding-top: 15px;">
+                </div>
+                <div class="h" style="height:40%;padding: 0px 20px;" layout="row" layout-align="start center">
+                  <h5 class="px13 lw">{{arr.CML_TITLE}}</h5>
+                </div>
+            </div>
+        </div>
+    </div>
+  </div>
+</div>
+<div class="b" *ngIf="selectIntSub == true" style="overflow-x:hidden;overflow-y: auto;">
+  <img src="assets/images/group1.svg" style="width: 100%; height: 315px; position: absolute; left:30%; opacity: 0.4;">
+  <div class="h" style="height:170px;" layout="row" layout-align="start center">
+      <div class="v" style="width:400px;padding:0px 30px;" layout="row" layout-align="start center">
+          <div class="vh" style="width:80px;height:80px;border-radius:50%;background:#cedcf5"></div>
+          <div class="v" style="width:calc(100% - 80px);padding: 0px 25px;" layout="column" layout-align="center center">
+            <div class="h" layout="row" layout-align="start center">
+              <h5 class="px40 hw" style="font-family: PoppinsSemiBold;">Chemistry</h5>
+            </div>
+            <div class="h" layout="row" layout-align="start center">
+              <h5 class="px16" style="font-family: PoppinsThin; text-align: center;">Class : 6</h5>
+              <h5 class="px16 lp" style="font-family: PoppinsThin;text-align: center;">4 chapter</h5>
+              <h5 class="px16 lp" style="font-family: PoppinsThin;text-align: center;">26 Videos</h5>
+            </div>
+          </div>
+      </div>
+  </div>
+  <div class="h" layout="row" layout-align="start center">
+      <div class="v" style="width:calc(100% - 270px);padding:0px 30px;height: 1000px;" layout="column" layout-align="start center">
+        <div class="h" style="height:60px;" layout="row" layout-align="start center">
+            <img src="assets/images/Group 42532.svg" (click)="backIntSub()" style="transform: rotate(180deg);"> 
+            <div class="vh pt" layout="row" layout-align="center center" style="width: 160px; height: 35px; background: #2fa92fc9; border-radius: 10px; margin-left: 15px;">
+              <h5 class="px18 clr4 hw" style="font-family: PoppinsSemiBold;">Fibre To Febric</h5>
+            </div>
+        </div>
+        <div class="h tm" style="height:325px;padding:0px 30px;">
+            <div class="b" style="border:1px solid;">
+              <iframe width="681" height="325" src="https://www.youtube.com/embed/tgbNymZ7vqY">
+              </iframe>
+            </div>
+        </div>
+      </div>
+      <div class="v lrp" style="width:270px;">
+          <div class="h" style="height:60px;" layout="row" layout-align="start center">
+            <h5 class="px18 lw" style="text-align: center;">1. Fibre to Fabric</h5>
+          </div>
+            <div class="h" *ngFor="let arr of fiberArr;let i = index;" style="height:200px;padding:20px 0px;width:160px;">
+              <div class="b" style="box-shadow: 0 0 15px 5px rgb(232 234 236 / 80%);height: 100%;">
+                  <div class="h brdRad" style="height:70%;" layout="row" layout-align="center center">
+                    <img src ="{{arr.CML_IMAGE}}" style="height:90%;padding-top: 15px;">
+                  </div>
+                  <div class="h" style="height:30%;padding: 0px 20px;" layout="row" layout-align="start center">
+                    <h5 class="px13 lw">{{arr.CML_TITLE}}</h5>
+                  </div>
+              </div>
+            </div>
+      </div>
+  </div>
+</div>
+<div class="vh" [ngClass]="{'openDrawer' : openDrawerFlag == true,'closeDrawer' : openDrawerFlag == false}">
+  <img src="assets/images/swadhyay_bg2.svg" style="width: 100%; height: 200px; position: absolute;opacity: 0.4;">
+  <div class="h" style="height:200px;padding: 0px 20px;" layout="column" layout-align="center center">
+      <div class="h" layout="row" layout-align="start center">
+        <img src="assets/images/Group 42532.svg" (click)="closeFunc()" style="transform: rotate(180deg);">
+      </div>
+      <div class="h" layout="row" layout-align="start center">
+        <h5 class="px30 hw clr4 tm" style="font-family: PoppinsSemiBold;">Swadhyay (PDF)</h5>
+      </div>
+      <div class="h" layout="row" layout-align="start center">
+        <h5 class="px16 lw clr4" style="margin-top: 3vh;">Download free chapter wise PDFs for self learning and accessment.</h5>
+      </div>
+  </div>
+  <div class="h" style="height:calc(100% - 200px);padding: 0px 20px;overflow-y: auto;">
+      <div class="h" style="height:105px;" *ngFor="let arr of subjectArr;let i = index;">
+          <div class="b brd bBrd" layout="row" layout-align="start center">
+            <div class="v" style="width:75px;height:75px;" layout="row" layout-align="center center">
+                <img src ="{{arr.CML_IMAGE}}" style="height:50%">
+            </div>
+            <div class="v lp" style="width:calc(100% - 75px)" layout="row" layout-align="start center">
+              <h5 class="px18 lw">{{arr.CML_TITLE}}</h5>
+            </div>
+          </div>
+      </div>
   </div>
 </div>
